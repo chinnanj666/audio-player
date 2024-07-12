@@ -4,9 +4,9 @@ import { resolve } from "path";
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "src/App.jsx"),
+      entry: resolve(__dirname , "src/App.jsx"),
       name: "Audio Player",
-      fileName: "audio-player",
+      fileName: "Audio-Player",
     },
     rollupOptions: {
       external: ["react", "react-dom"],
