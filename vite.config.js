@@ -1,13 +1,21 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import { defineConfig } from "vite";
+import { resolve } from "path";
 
 export default defineConfig({
-  plugins: [react()],
   build: {
-    outDir: 'public', // Output directory for build files
+    lib: {
+      entry: resolve(__dirname, "src/App.jsx"),
+      name: "Audio Player",
+      fileName: "audio-player",
+    },
     rollupOptions: {
-      input: resolve(__dirname, 'index.html'), // Entry point
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
   },
 });
